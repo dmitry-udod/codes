@@ -1,0 +1,9 @@
+dokku config:set --no-restart stage-api.taskopus.io APP_KEY=base64:$(head /dev/urandom | head -c 32 | base64)
+dokku config:set --no-restart codes BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-php
+
+//SSL
+Ssl dir:                       /home/dokku/stage-api.taskopus.io/tls
+Ssl enabled:                   true
+Ssl hostnames:                 HOST
+Ssl issuer:                    C = US, O = Lets Encrypt, CN = Lets Encrypt Authority X3
+Ssl subject:                   subject=CN = HOST
